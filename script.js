@@ -45,21 +45,21 @@ function renderTask() {
     taskContainer.innerHTML = "";
 
     task.forEach((dets, index) => {
-        taskContainer.innerHTML += `<div class="task-card" data-id='${dets.id}' data-status='${dets.status}' data-categiry='${dets.category}'>
+        taskContainer.innerHTML += `<div class="task-card" data-id='${dets.id}' data-status='${dets.status}' data-category='${dets.category}'>
+        <p class="status">${dets.status}</p>
+        
         <div class="task-top">
             <h2>${dets.title}</h2>
             <span class="badge">${dets.category}</span>
         </div>
-
-        <p class="status">${dets.status}</p>
 
         <div class="btns">
             <button class="edit"><span><i class="ri-edit-line"></i></span>Edit</button>
             <button class="complete"><span><i class="ri-check-line"></i></span>Complete</button>
             <button class="delete"><span><i class="ri-delete-bin-line"></i></span>Delete</button>
         </div>
-    </div>`
-    })
+    </div>`;
+})
 }
 
 function saveTasksLS() {
@@ -76,7 +76,7 @@ function loadTaskLS(){
 function updateCounter(){
     let totalTask = task.length;
     let completeTask = task.filter((i) => i.status === "Completed").length;
-    let PendingTask = task.filter((i) => i.status === "Pending").length;
+    let pendingTask = task.filter((i) => i.status === "Pending").length;
     
     total.textContent = totalTask;
     complete.textContent = completeTask;
